@@ -1,0 +1,47 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/abhayrajsinhgohil/Documents/PandemicCoin/contracts/Tokens.sol": {
+      "lastModificationDate": 1704377101357,
+      "contentHash": "a0e132ad2d6f33bd958835e198d20122",
+      "sourceName": "contracts/Tokens.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.19"
+      ],
+      "artifacts": [
+        "Context",
+        "IERC20",
+        "IUniswapV2Factory",
+        "IUniswapV2Router01",
+        "IUniswapV2Router02",
+        "Ownable",
+        "Pandemic",
+        "ReentrancyGuard"
+      ]
+    }
+  }
+}
