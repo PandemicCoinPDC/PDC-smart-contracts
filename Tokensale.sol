@@ -531,18 +531,24 @@ contract PrivateSale {
     // }
     
     // Function to withdraw tokens after the sale
-    function withdrawTokens() external {
-        require(!saleActive, "Sale is still active");
+    function withdrawTokens() external onlyOwner {
+        // require(!saleActive, "Sale is still active");
+        uint USDCToTransfer = ERC20(USDC_ADDRESS).balanceOf(address(this));
+        uint USDTToTransfer = ERC20(USDT_ADDRESS).balanceOf(address(this));
+        uint DAIToTransfer = ERC20(DAI_ADDRESS).balanceOf(address(this));
+
+        require(ERC20(USDC_ADDRESS).transfer(owner, USDCToTransfer), "Transfer unseccessful");
+        require(ERC20(USDT_ADDRESS).transfer(owner, USDTToTransfer), "Transfer unseccessful");
+        require(ERC20(DAI_ADDRESS).transfer(owner, DAIToTransfer), "Transfer unseccessful");
+        // uint256 tokensToTransfer = allocations[msg.sender];
+        // require(tokensToTransfer > 0, "No tokens to withdraw");
         
-        uint256 tokensToTransfer = allocations[msg.sender];
-        require(tokensToTransfer > 0, "No tokens to withdraw");
+        // // Transfer tokens to user
+        // require(ERC20(tokenAddress).transfer(msg.sender, tokensToTransfer), "Transfer failed");
         
-        // Transfer tokens to user
-        require(ERC20(tokenAddress).transfer(msg.sender, tokensToTransfer), "Transfer failed");
-        
-        // Reset user's deposit and allocated tokens to zero after withdrawal
-        deposits[msg.sender] = 0;
-        allocations[msg.sender] = 0;
+        // // Reset user's deposit and allocated tokens to zero after withdrawal
+        // deposits[msg.sender] = 0;
+        // allocations[msg.sender] = 0;
     }
     
     // Function to set minimum and maximum buying amounts
