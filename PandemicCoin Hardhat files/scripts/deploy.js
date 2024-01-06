@@ -9,8 +9,9 @@ const hre = require("hardhat");
 async function main() {
   // const [deployer] = await ethers.getSignatures();
   const Pandemic = await ethers.getContractFactory("Pandemic");
-  const token = await Pandemic.depoly();
-  console.log("Pandemic address:", token.address);
+  const token = await Pandemic.deploy();
+const address = await token.getAddress();
+  console.log("Pandemic address:", address);
 
   // const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   // const unlockTime = currentTimestampInSeconds + 60;
