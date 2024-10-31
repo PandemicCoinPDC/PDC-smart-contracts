@@ -99,15 +99,15 @@ contract PrivateSale {
         );
     }
 
-    function withdrawTokens() external onlyOwner {
-        uint256 usdcBalance = ERC20(USDC_ADDRESS).balanceOf(address(this));
-        uint256 usdtBalance = ERC20(USDT_ADDRESS).balanceOf(address(this));
-        uint256 daiBalance = ERC20(DAI_ADDRESS).balanceOf(address(this));
-
-        require(ERC20(USDC_ADDRESS).transfer(owner, usdcBalance), "USDC Transfer failed");
-        require(ERC20(USDT_ADDRESS).transfer(owner, usdtBalance), "USDT Transfer failed");
-        require(ERC20(DAI_ADDRESS).transfer(owner, daiBalance), "DAI Transfer failed");
-    }
+    // function withdrawTokens() external onlyOwner {
+     //   uint256 usdcBalance = ERC20(USDC_ADDRESS).balanceOf(address(this));
+      //  uint256 usdtBalance = ERC20(USDT_ADDRESS).balanceOf(address(this));
+      //  uint256 daiBalance = ERC20(DAI_ADDRESS).balanceOf(address(this));
+//
+  //      require(ERC20(USDC_ADDRESS).transfer(owner, usdcBalance), "USDC Transfer failed");
+    //    require(ERC20(USDT_ADDRESS).transfer(owner, usdtBalance), "USDT Transfer failed");
+      //  require(ERC20(DAI_ADDRESS).transfer(owner, daiBalance), "DAI Transfer failed");
+   // }
 
     function transferOwnership(address _newOwner) external onlyOwner {
         require(_newOwner != address(0), "Invalid address");
